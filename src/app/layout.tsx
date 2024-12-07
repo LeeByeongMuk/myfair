@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { pretendard } from '../fonts';
+
 import LayoutEmotion from './layout.emotion';
 import LayoutRecoil from './layout.recoil';
 
@@ -15,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={pretendard.className}>
         <LayoutRecoil>
           <LayoutEmotion>{children}</LayoutEmotion>
         </LayoutRecoil>

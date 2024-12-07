@@ -13,9 +13,6 @@ declare module '@emotion/react' {
       textDisabled: string;
       border: string;
     };
-    fonts: {
-      body: string;
-    };
     devices: {
       medium: string;
     };

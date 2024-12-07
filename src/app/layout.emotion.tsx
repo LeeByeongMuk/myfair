@@ -19,9 +19,6 @@ const theme = {
     textDisabled: '#B9B9B9',
     border: '#E5E5E5',
   },
-  fonts: {
-    body: `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;`,
-  },
   devices: {
     medium: '737px',
   },
