@@ -1,9 +1,8 @@
-import React from "react";
-import TodoUserListPage from "../components/pages/TodoUserListPage";
+import React from 'react';
 
-interface Props {}
+import TodoUserListPage from '../components/pages/TodoUserListPage';
 
-const Page = ({}: Props) => {
+const Page = () => {
   return <TodoUserListPage />;
 };
 
