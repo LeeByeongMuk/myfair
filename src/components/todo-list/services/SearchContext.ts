@@ -1,5 +1,6 @@
-import {ISearchStrategy} from "../strategies/SearchStrategy";
 import {Todo, Filter} from "../types/types";
+
+import {ISearchStrategy} from "./SearchStrategy";
 
 export class SearchContext {
   private strategy: ISearchStrategy;

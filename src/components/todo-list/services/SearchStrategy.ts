@@ -1,4 +1,4 @@
-import {Filter, Todo} from "../types/types";
+import { Filter, Todo } from '../types/types';
 
 export interface ISearchStrategy {
   execute(todos: Todo[], filter: Filter): Todo[];
