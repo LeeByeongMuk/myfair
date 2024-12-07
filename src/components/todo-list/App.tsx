@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-import React from "react";
+import styled from '@emotion/styled';
+import React from 'react';
 
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
-import TodoListCount from "./components/TodoListCount";
-import TodoMenu from "./components/TodoMenu";
-import useTodos from "./hooks/useTodo";
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
+import TodoListCount from './components/TodoListCount';
+import TodoMenu from './components/TodoMenu';
+import useTodos from './hooks/useTodo';
 
 const Container = styled.section`
   width: 100%;
@@ -21,8 +21,15 @@ const TodoListContainer = styled.div`
   padding: 32px;
   margin-top: 32px;
   border-radius: 24px;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 6px 0 #000000;
+  background: ${({ theme: { colors } }) => colors.white};
+  box-shadow: 0 0 6px 0 ${({ theme: { colors } }) => colors.textPrimary};
+`;
+
+const TodoListTitle = styled.h2`
+  font-size: 56px;
+  font-weight: bold;
+  line-height: 72px;
+  text-align: center;
 `;
 
 export default function TodoListApp() {
@@ -38,14 +45,15 @@ export default function TodoListApp() {
 
   return (
     <Container>
-      <TodoInput addTodo={handleAddTodo}/>
+      <TodoListTitle>To Do List</TodoListTitle>
+      <TodoInput addTodo={handleAddTodo} />
       <TodoListContainer>
         <TodoMenu
           options={['all', 'todo', 'done']} // TODO: fix this
           currentFilter={filter}
           handleChangeFilter={handleChangeFilter}
         />
-        <TodoListCount totalCount={totalCount}/>
+        <TodoListCount totalCount={totalCount} />
         <TodoList
           todos={filteredTodos}
           handleToggleTodo={handleToggleTodo}

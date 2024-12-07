@@ -18,7 +18,7 @@ const Button = styled.button`
   cursor: pointer;
 
   svg path {
-    fill: #B9B9B9;
+    fill: ${({ theme: { colors } }) => colors.textDisabled};
     transition: fill 0.2s;
   }
 `;

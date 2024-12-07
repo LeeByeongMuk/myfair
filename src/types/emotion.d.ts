@@ -12,6 +12,7 @@ declare module '@emotion/react' {
       textMuted: string;
       textDisabled: string;
       border: string;
+      white: string;
     };
     devices: {
       medium: string;

@@ -30,9 +30,12 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: 1px solid ${({ checked }) => (checked ? '#2182F3' : '#EAEAEA')};
+  border: 1px solid
+    ${({ checked, theme: { colors } }) =>
+      checked ? colors.primary200 : colors.border};
   border-radius: 50%;
-  background-color: ${({ checked }) => (checked ? '#EBF4FF' : '#FFFFFF')};
+  background-color: ${({ checked, theme: { colors } }) =>
+    checked ? colors.primary100 : colors.white};
   cursor: pointer;
   transition:
     background-color 0.2s,
@@ -45,7 +48,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
 
   svg path {
     transform: scale(0.83);
-    fill: #2182f3;
+    fill: ${({ theme: { colors } }) => colors.primary200};
   }
 `;
 

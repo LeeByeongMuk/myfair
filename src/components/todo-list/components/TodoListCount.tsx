@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "@emotion/styled";
+import React from "react";
 
 interface FooterProps {
   totalCount: number;
@@ -8,10 +8,6 @@ interface FooterProps {
 const Container = styled.div`
   margin-top: 32px;
   padding: 16px 0 16px 16px;
-  font-family: "Pretendard Variable", Pretendard, -apple-system,
-  BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-  "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;

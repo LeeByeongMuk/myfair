@@ -1,5 +1,5 @@
-import React, {useState, useCallback} from "react";
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import React, { useState, useCallback } from 'react';
 
 interface TodoInputProps {
   addTodo: (text: string) => void;
@@ -11,33 +11,31 @@ const Input = styled.input`
   margin-top: 64px;
   padding: 0 32px;
   border-radius: 24px;
-  color: #000000;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: ${({ theme: { colors } }) => colors.textPrimary};
   font-size: 20px;
   line-height: 28px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  background: #E5E5E5;
+  background: ${({ theme: { colors } }) => colors.border};
 
   &:focus {
     outline: none;
-    border-color: #005bb5;
   }
-  
+
   &::placeholder {
-    color: #B9B9B9;
+    color: ${({ theme: { colors } }) => colors.textDisabled};
   }
 `;
 
-export default function TodoInput({addTodo}: TodoInputProps) {
-  const [input, setInput] = useState("");
+export default function TodoInput({ addTodo }: TodoInputProps) {
+  const [input, setInput] = useState('');
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === "Enter" && input.trim()) {
+      if (e.key === 'Enter' && input.trim()) {
         addTodo(input.trim());
-        setInput("");
+        setInput('');
       }
     },
     [addTodo, input]
@@ -52,4 +50,4 @@ export default function TodoInput({addTodo}: TodoInputProps) {
       onKeyDown={handleKeyDown}
     />
   );
-};
+}

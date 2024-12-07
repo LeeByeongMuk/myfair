@@ -18,6 +18,7 @@ const theme = {
     textMuted: '#868686',
     textDisabled: '#B9B9B9',
     border: '#E5E5E5',
+    white: '#FFFFFF',
   },
   devices: {
     medium: '737px',
