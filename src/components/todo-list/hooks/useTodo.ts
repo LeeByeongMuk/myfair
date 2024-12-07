@@ -1,5 +1,6 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
+import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import { SearchContext } from '../context/SearchContext';
 import {
   AllSearchStrategy,
@@ -8,6 +9,9 @@ import {
 } from '../strategies/SearchStrategy';
 import { Todo, Filter } from '../types/types';
 
+const TODOS_KEY = 'todos';
+const FILTER_KEY = 'filter';
+
 const filterToStrategyMap = {
   all: new AllSearchStrategy(),
   todo: new TodoSearchStrategy(),
@@ -15,8 +19,8 @@ const filterToStrategyMap = {
 };
 
 export default function useTodos() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<Filter>('all');
+  const [todos, setTodos] = useLocalStorage<Todo[]>(TODOS_KEY, []);
+  const [filter, setFilter] = useLocalStorage<Filter>(FILTER_KEY, 'all');
 
   const searchContext = useMemo(
     () => new SearchContext(filterToStrategyMap[filter]),
