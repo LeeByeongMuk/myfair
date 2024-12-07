@@ -1,5 +1,6 @@
 import React from 'react';
 
+import LayoutEmotion from './layout.emotion';
 import LayoutRecoil from './layout.recoil';
 
 export const metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LayoutRecoil>{children}</LayoutRecoil>
+        <LayoutRecoil>
+          <LayoutEmotion>{children}</LayoutEmotion>
+        </LayoutRecoil>
       </body>
     </html>
   );
