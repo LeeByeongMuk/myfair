@@ -1,12 +1,10 @@
-"use client";
-import React from "react";
-import styled from "@emotion/styled";
+'use client';
+import styled from '@emotion/styled';
+import React from 'react';
 
 const Container = styled.div``;
 
-interface Props {}
-
-const TodoUserListPage = ({}: Props) => {
+const TodoUserListPage = () => {
   return (
     <Container>
       <div>todo</div>
