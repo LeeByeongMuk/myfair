@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ main ]
   pull_request:
-    types: [ opened, synchronize, reopened ]
 
 jobs:
   lint:
@@ -16,19 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Install the project dependencies
         run: yarn install
 
-      - name: Fix code style issues with prettier & eslint
-        run: yarn run lint:fix && yarn run prettier:fix
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Fix styling
+      - name: Check code style issues
+        run: yarn run lint && yarn run prettier --check .
 
   build:
     needs: lint
@@ -40,8 +32,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
