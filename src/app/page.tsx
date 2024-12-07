@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoUserListPage from '../components/pages/TodoUserListPage';
+import TodoUserListPage from '@components/pages/TodoUserListPage';
 
 const Page = () => {
   return <TodoUserListPage />;

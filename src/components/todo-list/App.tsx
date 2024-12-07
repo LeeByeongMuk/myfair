@@ -1,36 +1,15 @@
-import styled from '@emotion/styled';
 import React from 'react';
 
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
-import TodoListCount from './components/TodoListCount';
-import TodoMenu from './components/TodoMenu';
-import useTodos from './hooks/useTodo';
-
-const Container = styled.section`
-  width: 100%;
-  max-width: 727px;
-  min-width: 320px;
-  margin: 0 auto;
-`;
-
-const TodoListContainer = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  padding: 32px;
-  margin-top: 32px;
-  border-radius: 24px;
-  background: ${({ theme: { colors } }) => colors.white};
-  box-shadow: 0 0 6px 0 ${({ theme: { colors } }) => colors.textPrimary};
-`;
-
-const TodoListTitle = styled.h2`
-  font-size: 56px;
-  font-weight: bold;
-  line-height: 72px;
-  text-align: center;
-`;
+import {
+  TodoListAppContainer,
+  TodoListContainer,
+  TodoListTitle,
+} from '@components/todo-list/App.emotion';
+import TodoForm from '@components/todo-list/components/TodoForm';
+import TodoList from '@components/todo-list/components/TodoList';
+import TodoListCount from '@components/todo-list/components/TodoListCount';
+import TodoMenu from '@components/todo-list/components/TodoMenu';
+import useTodos from '@components/todo-list/hooks/useTodo';
 
 export default function TodoListApp() {
   const {
@@ -44,9 +23,9 @@ export default function TodoListApp() {
   } = useTodos();
 
   return (
-    <Container>
+    <TodoListAppContainer>
       <TodoListTitle>To Do List</TodoListTitle>
-      <TodoInput addTodo={handleAddTodo} />
+      <TodoForm addTodo={handleAddTodo} />
       <TodoListContainer>
         <TodoMenu
           options={['all', 'todo', 'done']} // TODO: fix this
@@ -60,6 +39,6 @@ export default function TodoListApp() {
           handleDeleteTodo={handleDeleteTodo}
         />
       </TodoListContainer>
-    </Container>
+    </TodoListAppContainer>
   );
 }

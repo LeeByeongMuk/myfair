@@ -1,6 +1,5 @@
-import {Todo, Filter} from "../types/types";
-
-import {ISearchStrategy} from "./SearchStrategy";
+import { ISearchStrategy } from '@components/todo-list/services/SearchStrategy';
+import { Filter, Todo } from '@components/todo-list/types/types';
 
 export class SearchContext {
   private strategy: ISearchStrategy;

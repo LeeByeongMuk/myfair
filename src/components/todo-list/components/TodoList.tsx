@@ -1,9 +1,8 @@
-import styled from '@emotion/styled';
 import React from 'react';
 
-import { Todo } from '../types/types';
-
-import TodoItem from './TodoItem';
+import TodoItem from '@components/todo-list/components/TodoItem';
+import { TodoListContainer } from '@components/todo-list/components/TodoList.emotion';
+import { Todo } from '@components/todo-list/types/types';
 
 interface TodoListProps {
   todos: Todo[];
@@ -11,18 +10,13 @@ interface TodoListProps {
   handleDeleteTodo: (id: number) => void;
 }
 
-const Container = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
 export default function TodoList({
   todos,
   handleToggleTodo,
   handleDeleteTodo,
 }: TodoListProps) {
   return (
-    <Container>
+    <TodoListContainer>
       {todos.map(todo => (
         <TodoItem
           key={todo.id}
@@ -31,6 +25,6 @@ export default function TodoList({
           handleDeleteTodo={handleDeleteTodo}
         />
       ))}
-    </Container>
+    </TodoListContainer>
   );
 }

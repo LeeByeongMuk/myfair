@@ -1,10 +1,12 @@
-import styled from '@emotion/styled';
 import React from 'react';
 
-import { Todo } from '../types/types';
-
-import CheckBox from './CheckBox';
-import DeleteButton from './DeleteButton';
+import CheckBox from '@components/todo-list/components/CheckBox';
+import DeleteButton from '@components/todo-list/components/DeleteButton';
+import {
+  TextLabel,
+  TodoItemContainer,
+} from '@components/todo-list/components/TodoItem.emotion';
+import { Todo } from '@components/todo-list/types/types';
 
 interface Props {
   todo: Todo;
@@ -12,38 +14,13 @@ interface Props {
   handleDeleteTodo: (id: number) => void;
 }
 
-const Container = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 16px;
-`;
-
-const TextLabel = styled.label<{ completed: boolean }>`
-  overflow: hidden;
-  width: calc(100% - 88px);
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 28px;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  color: ${({ completed, theme: { colors } }) =>
-    completed ? colors.textMuted : colors.textPrimary};
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 export default function TodoItem({
   todo,
   handleToggleTodo,
   handleDeleteTodo,
 }: Props) {
   return (
-    <Container>
+    <TodoItemContainer>
       <CheckBox
         id={todo.id.toString()}
         isChecked={todo.completed}
@@ -55,6 +32,6 @@ export default function TodoItem({
       </TextLabel>
 
       <DeleteButton handleDelete={() => handleDeleteTodo(todo.id)} />
-    </Container>
+    </TodoItemContainer>
   );
 }

@@ -1,13 +1,14 @@
 import { useCallback, useMemo } from 'react';
 
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
-import { SearchContext } from '../services/SearchContext';
+import { SearchContext } from '@components/todo-list/services/SearchContext';
 import {
   AllSearchStrategy,
-  TodoSearchStrategy,
   DoneSearchStrategy,
-} from '../services/SearchStrategy';
-import { Todo, Filter } from '../types/types';
+  TodoSearchStrategy,
+} from '@components/todo-list/services/SearchStrategy';
+import { Filter, Todo } from '@components/todo-list/types/types';
+
+import { useLocalStorage } from '@hooks/useLocalStorage';
 
 const TODOS_KEY = 'todos';
 const FILTER_KEY = 'filter';
