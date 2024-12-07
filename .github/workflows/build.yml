@@ -20,7 +20,7 @@ jobs:
         run: yarn install
 
       - name: Check code style issues
-        run: yarn run lint && yarn run prettier --check .
+        run: yarn run lint && yarn run prettier
 
   build:
     needs: lint
