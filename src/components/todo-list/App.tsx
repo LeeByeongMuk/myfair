@@ -19,20 +19,21 @@ export default function TodoListApp() {
     handleChangeFilter,
     handleDeleteTodo,
     handleToggleTodo,
-    totalCount,
+    totalTodos,
+    totalFilteredTodos,
   } = useTodos();
 
   return (
     <TodoListAppContainer>
       <TodoListTitle>To Do List</TodoListTitle>
-      <TodoForm addTodo={handleAddTodo} />
+      <TodoForm handleAddTodo={handleAddTodo} totalTodos={totalTodos} />
       <TodoListContainer>
         <TodoMenu
           options={['all', 'todo', 'done']} // TODO: fix this
           currentFilter={filter}
           handleChangeFilter={handleChangeFilter}
         />
-        <TodoListCount totalCount={totalCount} />
+        <TodoListCount totalCount={totalFilteredTodos} />
         <TodoList
           todos={filteredTodos}
           handleToggleTodo={handleToggleTodo}

@@ -1,23 +1,29 @@
 import React, { useState, useCallback } from 'react';
 
 import { TodoInput } from '@components/todo-list/components/TodoForm.emotion';
+import { MAX_TODO_TEXT_LENGTH } from '@components/todo-list/utils/validation';
 
-interface TodoInputProps {
-  addTodo: (text: string) => void;
+interface TodoFormProps {
+  handleAddTodo: (text: string) => string | null;
+  totalTodos: number;
 }
 
-export default function TodoForm({ addTodo }: TodoInputProps) {
+export default function TodoForm({ handleAddTodo, totalTodos }: TodoFormProps) {
   const [input, setInput] = useState('');
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (input.trim()) {
-        addTodo(input.trim());
-        setInput('');
+
+      const errorMessage = handleAddTodo(input.trim());
+      if (errorMessage) {
+        alert(errorMessage);
+        return;
       }
+
+      setInput('');
     },
-    [addTodo, input]
+    [handleAddTodo, input, totalTodos]
   );
 
   return (
@@ -29,6 +35,7 @@ export default function TodoForm({ addTodo }: TodoInputProps) {
         type="text"
         id="todo-input"
         placeholder="할 일을 입력하세요"
+        maxLength={MAX_TODO_TEXT_LENGTH}
         value={input}
         onChange={e => setInput(e.target.value)}
       />
