@@ -14,8 +14,11 @@ import {
 
 import { useLocalStorage } from '@hooks/useLocalStorage';
 
+import { counterHelper } from '@utils/storageHelper';
+
 const TODOS_KEY = 'todos';
 const FILTER_KEY = 'filter';
+const TODOS_UNIQUE_COUNTER_KEY = 'todosUniqueCounter';
 
 const filterToStrategyMap = {
   all: new AllSearchStrategy(),
@@ -55,7 +58,8 @@ export default function useTodos() {
         if (error) return error;
       }
 
-      const newTodo: Todo = { id: Date.now(), text, completed: false };
+      const id = counterHelper.incrementCounter(TODOS_UNIQUE_COUNTER_KEY);
+      const newTodo: Todo = { id, text, completed: false };
       setTodos(prev => [...prev, newTodo]);
 
       return null;

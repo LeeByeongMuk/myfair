@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { localStorageHelper } from '@utils/storageHelper';
 
 export function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [value, setValue] = useState<T>(() => {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : initialValue;
-  });
+  const [value, setValue] = useState<T>(initialValue);
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    localStorageHelper.set(key, initialValue);
+  }, [key, initialValue]);
 
   return [value, setValue];
 }
