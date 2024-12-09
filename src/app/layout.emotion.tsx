@@ -25,8 +25,8 @@ const theme = {
   },
 };
 
-const LayoutRecoil = ({ children }: Props) => {
+const LayoutEmotion = ({ children }: Props) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export default LayoutRecoil;
+export default LayoutEmotion;
