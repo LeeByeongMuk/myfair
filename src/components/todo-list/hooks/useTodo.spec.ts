@@ -5,8 +5,15 @@ import { MAX_TODO_TEXT_LENGTH } from '@components/todo-list/utils/validation';
 
 jest.mock('@components/todo-list/utils/validation', () => ({
   MAX_TODO_TEXT_LENGTH: 20,
+  MIN_TODO_TEXT_LENGTH: 1,
   validateTodoTextLength: jest.fn((text: string) => {
-    return text.length > 20 ? `할 일은 20글자를 넘을 수 없습니다.` : null;
+    if (text.trim().length < 1) {
+      return `할 일은 최소 1글자 이상이어야 합니다.`;
+    }
+    if (text.trim().length > 20) {
+      return `할 일은 20글자를 넘을 수 없습니다.`;
+    }
+    return null;
   }),
   validateMaxTodosCount: jest.fn((currentCount: number) => {
     return currentCount >= 10 ? `할 일은 10개를 초과할 수 없습니다.` : null;
@@ -28,7 +35,7 @@ describe('useTodos 훅 테스트', () => {
     expect(result.current.totalFilteredTodos).toBe(0);
   });
 
-  test('todo-list 을 추가한다.', () => {
+  test('todo-list 를 추가한다.', () => {
     const { result } = renderHook(() => useTodos());
 
     act(() => {
@@ -42,7 +49,7 @@ describe('useTodos 훅 테스트', () => {
     ]);
   });
 
-  test('todo-list 추가 시 유효성 검사를 실패하면 에러를 메세지를 반환한다.', () => {
+  test('todo-list 추가 시 유효성 검사 실패 (최대 글자 수 초과)로 에러 메시지를 반환한다.', () => {
     const { result } = renderHook(() => useTodos());
 
     act(() => {
@@ -52,6 +59,23 @@ describe('useTodos 훅 테스트', () => {
       expect(error).toBe(
         `할 일은 ${MAX_TODO_TEXT_LENGTH}글자를 넘을 수 없습니다.`
       );
+    });
+
+    expect(result.current.totalTodos).toBe(0);
+    expect(result.current.filteredTodos).toEqual([]);
+  });
+
+  test('todo-list 추가 시 유효성 검사 실패 (최소 글자 수 미만)로 에러 메시지를 반환한다.', () => {
+    const { result } = renderHook(() => useTodos());
+
+    act(() => {
+      const error = result.current.handleAddTodo('');
+      expect(error).toBe(`할 일은 최소 1글자 이상이어야 합니다.`);
+    });
+
+    act(() => {
+      const error = result.current.handleAddTodo(' ');
+      expect(error).toBe(`할 일은 최소 1글자 이상이어야 합니다.`);
     });
 
     expect(result.current.totalTodos).toBe(0);
