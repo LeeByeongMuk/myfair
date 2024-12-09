@@ -39,7 +39,7 @@ describe('TodoListApp 컴포넌트', () => {
     expect(screen.getByText(/총\s*0개/i)).toBeInTheDocument();
   });
 
-  test('TodoMenu 필터 옵션이 제대로 렌더링된다.', () => {
+  test('TodoMenu 필터 옵션이 렌더링된다.', () => {
     const menuOptions = ['all', 'todo', 'done'];
     menuOptions.forEach(option => {
       expect(screen.getByText(option.toUpperCase())).toBeInTheDocument();
