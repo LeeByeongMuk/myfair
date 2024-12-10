@@ -8,8 +8,8 @@ import LayoutEmotion from '@app/layout.emotion';
 import TodoList from '@components/todo-list/components/TodoList';
 import { Todo } from '@components/todo-list/types/types';
 
-jest.mock('@components/todo-list/components/CheckBox');
-jest.mock('@components/todo-list/components/DeleteButton');
+jest.mock('@components/common/CheckBox');
+jest.mock('@components/common/DeleteButton');
 
 describe('TodoList 컴포넌트', () => {
   const mockHandleToggleTodo = jest.fn();

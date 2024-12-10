@@ -4,17 +4,17 @@ import {
   CheckboxStyled,
   CheckboxWrapper,
   HiddenCheckbox,
-} from '@components/todo-list/components/CheckBox.emotion';
+} from '@components/common/CheckBox.emotion';
 
 import CheckIcon from '@images/Check.svg';
 
-interface Props {
+export interface CheckBoxProps {
   id: string;
   isChecked: boolean;
   handleToggle: () => void;
 }
 
-export default function CheckBox({ id, isChecked, handleToggle }: Props) {
+export default function CheckBox({ id, isChecked, handleToggle }: CheckBoxProps) {
   return (
     <CheckboxWrapper>
       <HiddenCheckbox
@@ -24,6 +24,7 @@ export default function CheckBox({ id, isChecked, handleToggle }: Props) {
         onChange={handleToggle}
         aria-checked={isChecked}
         aria-label="Toggle Todo"
+        data-testid={`checkbox-${id}`}
       />
       <CheckboxStyled checked={isChecked}>
         {isChecked && <CheckIcon />}

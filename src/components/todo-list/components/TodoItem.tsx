@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CheckBox from '@components/todo-list/components/CheckBox';
-import DeleteButton from '@components/todo-list/components/DeleteButton';
+import CheckBox from '@components/common/CheckBox';
+import DeleteButton from '@components/common/DeleteButton';
 import {
   TextLabel,
   TodoItemContainer,
