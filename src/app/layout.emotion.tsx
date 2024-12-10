@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const theme = {
+export const theme = {
   colors: {
     background: '#F6F6F6',
     primary100: '#EBF4FF',
