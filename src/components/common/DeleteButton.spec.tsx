@@ -9,7 +9,7 @@ import { wrapper } from '@tests/testUtils';
 
 jest.mock('@images/Close.svg', () => ({
   __esModule: true,
-  ReactComponent: () => <div data-testid="close-icon">Mocked SVG</div>,
+  default: () => <svg data-testid="close-icon">Mocked SVG</svg>,
 }));
 
 describe('DeleteButton 컴포넌트', () => {

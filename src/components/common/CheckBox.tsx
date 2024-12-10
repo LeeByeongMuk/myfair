@@ -6,7 +6,7 @@ import {
   HiddenCheckbox,
 } from '@components/common/CheckBox.emotion';
 
-import { ReactComponent as CheckIcon } from '@images/Check.svg';
+import CheckIcon from '@images/Check.svg';
 
 export interface CheckBoxProps {
   id: string;

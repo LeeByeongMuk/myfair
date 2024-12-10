@@ -9,7 +9,7 @@ import { wrapper } from '@tests/testUtils';
 
 jest.mock('@images/Check.svg', () => ({
   __esModule: true,
-  ReactComponent: () => <div>Mocked SVG</div>,
+  default: () => <svg>Mocked SVG</svg>,
 }));
 
 describe('CheckBox 컴포넌트', () => {

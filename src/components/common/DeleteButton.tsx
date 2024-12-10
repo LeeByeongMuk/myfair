@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DeleteButtonStyled } from '@components/common/DeleteButton.emotion';
 
-import { ReactComponent as CloseIcon } from '@images/Close.svg';
+import CloseIcon from '@images/Close.svg';
 
 export interface DeleteButtonProps {
   handleDelete: () => void;
