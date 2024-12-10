@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DeleteButtonStyled } from '@components/common/DeleteButton.emotion';
 
-import CloseIcon from '@images/Close.svg';
+import { ReactComponent as CloseIcon } from '@images/Close.svg';
 
 export interface DeleteButtonProps {
   handleDelete: () => void;
@@ -15,7 +15,7 @@ export default function DeleteButton({ handleDelete }: DeleteButtonProps) {
       aria-label="Delete"
       data-testid="delete-button"
     >
-      <CloseIcon />
+      <CloseIcon data-testid="close-icon" />
     </DeleteButtonStyled>
   );
 }
