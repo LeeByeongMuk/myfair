@@ -20,7 +20,7 @@ export default function TodoItem({
   handleDeleteTodo,
 }: Props) {
   return (
-    <TodoItemContainer>
+    <TodoItemContainer role="todo-list-item">
       <CheckBox
         id={todo.id.toString()}
         isChecked={todo.completed}
