@@ -39,6 +39,29 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@fonts/*": [
+        "./src/fonts/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@images/*": [
+        "./public/images/*"
+      ],
+      "@tests/*": [
+        "./src/tests/*"
+      ]
+    }
   }
 }

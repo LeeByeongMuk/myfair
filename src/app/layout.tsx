@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { pretendard } from '../fonts';
+import LayoutEmotion from '@app/layout.emotion';
+import LayoutRecoil from '@app/layout.recoil';
 
-import LayoutEmotion from './layout.emotion';
-import LayoutRecoil from './layout.recoil';
+import { pretendard } from '@fonts/index';
+
+import '@app/global.css';
 
 export const metadata = {
   title: 'myfair front pre-course',

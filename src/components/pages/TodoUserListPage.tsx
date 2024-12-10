@@ -1,13 +1,18 @@
 'use client';
+
 import styled from '@emotion/styled';
 import React from 'react';
 
-const Container = styled.div``;
+import TodoListApp from '@components/todo-list/App';
+
+const Container = styled.div`
+  padding: 128px 32px;
+`;
 
 const TodoUserListPage = () => {
   return (
     <Container>
-      <div>todo</div>
+      <TodoListApp />
     </Container>
   );
 };

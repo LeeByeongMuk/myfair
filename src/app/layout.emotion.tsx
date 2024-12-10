@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const theme = {
+export const theme = {
   colors: {
     background: '#F6F6F6',
     primary100: '#EBF4FF',
@@ -18,14 +18,15 @@ const theme = {
     textMuted: '#868686',
     textDisabled: '#B9B9B9',
     border: '#E5E5E5',
+    white: '#FFFFFF',
   },
   devices: {
     medium: '737px',
   },
 };
 
-const LayoutRecoil = ({ children }: Props) => {
+const LayoutEmotion = ({ children }: Props) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export default LayoutRecoil;
+export default LayoutEmotion;
