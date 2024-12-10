@@ -21,13 +21,13 @@ jest.mock('@components/todo-list/hooks/useTodo', () => ({
   })),
 }));
 
-function renderWithLayout(component: React.ReactNode) {
-  return render(<LayoutEmotion>{component}</LayoutEmotion>);
-}
-
 describe('TodoListApp 컴포넌트', () => {
   beforeEach(() => {
-    renderWithLayout(<TodoListApp />);
+    render(
+      <LayoutEmotion>
+        <TodoListApp />
+      </LayoutEmotion>
+    );
   });
 
   test('기본 렌더링을 확인한다.', () => {

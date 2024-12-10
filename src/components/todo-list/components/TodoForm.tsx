@@ -27,7 +27,7 @@ export default function TodoForm({ handleAddTodo, totalTodos }: TodoFormProps) {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} role="form">
       <label htmlFor="todo-input" style={{ display: 'none' }}>
         할 일 입력
       </label>
