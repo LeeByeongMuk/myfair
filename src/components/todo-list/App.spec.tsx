@@ -1,10 +1,11 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
-import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
 import TodoListApp from '@components/todo-list/App';
+
+import { wrapper } from '@tests/testUtils';
 
 jest.mock('@components/todo-list/hooks/useTodo', () => ({
   __esModule: true,

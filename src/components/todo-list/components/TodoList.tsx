@@ -1,7 +1,10 @@
 import React from 'react';
 
 import TodoItem from '@components/todo-list/components/TodoItem';
-import { EmptyTodoList, TodoListContainer } from '@components/todo-list/components/TodoList.emotion';
+import {
+  EmptyTodoList,
+  TodoListContainer,
+} from '@components/todo-list/components/TodoList.emotion';
 import { Todo } from '@components/todo-list/types/types';
 
 interface TodoListProps {

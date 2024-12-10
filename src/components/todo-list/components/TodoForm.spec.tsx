@@ -1,10 +1,11 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
-import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
 import TodoForm from '@components/todo-list/components/TodoForm';
+
+import { wrapper } from '@tests/testUtils';
 
 describe('TodoForm 컴포넌트', () => {
   const mockHandleAddTodo = jest.fn();

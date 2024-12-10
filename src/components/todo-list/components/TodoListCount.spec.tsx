@@ -1,10 +1,11 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
-import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
 import TodoListCount from '@components/todo-list/components/TodoListCount';
+
+import { wrapper } from '@tests/testUtils';
 
 describe('TodoListCount 컴포넌트', () => {
   test('totalCount 값이 0일 때 올바르게 렌더링된다.', () => {

@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
-import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
 import { CheckBoxProps } from '@components/common/CheckBox';
 import { DeleteButtonProps } from '@components/common/DeleteButton';
 import TodoItem from '@components/todo-list/components/TodoItem';
+
+import { wrapper } from '@tests/testUtils';
 
 jest.mock('@components/common/CheckBox', () => ({
   __esModule: true,

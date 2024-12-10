@@ -1,10 +1,11 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
-import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
 import CheckBox from '@components/common/CheckBox';
+
+import { wrapper } from '@tests/testUtils';
 
 jest.mock('@images/Check.svg', () => ({
   __esModule: true,
