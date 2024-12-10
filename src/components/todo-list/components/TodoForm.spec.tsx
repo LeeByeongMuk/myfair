@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
+import { wrapper } from '@tests/testUtils';
 import React from 'react';
-
-import LayoutEmotion from '@app/layout.emotion';
 
 import TodoForm from '@components/todo-list/components/TodoForm';
 
@@ -11,11 +10,9 @@ describe('TodoForm 컴포넌트', () => {
   const mockHandleAddTodo = jest.fn();
 
   beforeEach(() => {
-    render(
-      <LayoutEmotion>
-        <TodoForm handleAddTodo={mockHandleAddTodo} totalTodos={0} />
-      </LayoutEmotion>
-    );
+    render(<TodoForm handleAddTodo={mockHandleAddTodo} totalTodos={0} />, {
+      wrapper,
+    });
     jest.clearAllMocks();
   });
 

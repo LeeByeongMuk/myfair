@@ -1,11 +1,10 @@
+import '@testing-library/jest-dom';
+
 import { render, screen } from '@testing-library/react';
+import { wrapper } from '@tests/testUtils';
 import React from 'react';
 
-import LayoutEmotion from '@app/layout.emotion';
-
 import TodoListApp from '@components/todo-list/App';
-
-import '@testing-library/jest-dom';
 
 jest.mock('@components/todo-list/hooks/useTodo', () => ({
   __esModule: true,
@@ -23,11 +22,7 @@ jest.mock('@components/todo-list/hooks/useTodo', () => ({
 
 describe('TodoListApp 컴포넌트', () => {
   beforeEach(() => {
-    render(
-      <LayoutEmotion>
-        <TodoListApp />
-      </LayoutEmotion>
-    );
+    render(<TodoListApp />, { wrapper });
   });
 
   test('기본 렌더링을 확인한다.', () => {

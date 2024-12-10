@@ -58,6 +58,9 @@
       ],
       "@images/*": [
         "./public/images/*"
+      ],
+      "@tests/*": [
+        "./src/tests/*"
       ]
     }
   }

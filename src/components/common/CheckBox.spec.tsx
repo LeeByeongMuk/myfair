@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
+import { wrapper } from '@tests/testUtils';
 import React from 'react';
-
-import LayoutEmotion from '@app/layout.emotion';
 
 import CheckBox from '@components/common/CheckBox';
 
@@ -14,10 +13,6 @@ jest.mock('@images/Check.svg', () => ({
 
 describe('CheckBox 컴포넌트', () => {
   const mockHandleToggle = jest.fn();
-
-  const wrapper = ({ children }: { children: React.ReactNode }) => (
-    <LayoutEmotion>{children}</LayoutEmotion>
-  );
 
   beforeEach(() => {
     jest.clearAllMocks();

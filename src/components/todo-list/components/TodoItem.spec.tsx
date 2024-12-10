@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
 
 import { render, screen, fireEvent } from '@testing-library/react';
+import { wrapper } from '@tests/testUtils';
 import React from 'react';
-
-import LayoutEmotion from '@app/layout.emotion';
 
 import { CheckBoxProps } from '@components/common/CheckBox';
 import { DeleteButtonProps } from '@components/common/DeleteButton';
@@ -48,13 +47,12 @@ describe('TodoItem 컴포넌트', () => {
 
   beforeEach(() => {
     render(
-      <LayoutEmotion>
-        <TodoItem
-          todo={mockTodo}
-          handleToggleTodo={mockHandleToggleTodo}
-          handleDeleteTodo={mockHandleDeleteTodo}
-        />
-      </LayoutEmotion>
+      <TodoItem
+        todo={mockTodo}
+        handleToggleTodo={mockHandleToggleTodo}
+        handleDeleteTodo={mockHandleDeleteTodo}
+      />,
+      { wrapper }
     );
     jest.clearAllMocks();
   });

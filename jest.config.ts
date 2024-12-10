@@ -16,7 +16,7 @@ const customJestConfig: Config = {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),
-    '\\.svg$': '<rootDir>/__mocks__/svgMock.ts',
+    '\\.svg$': '<rootDir>/src/tests/mocks/svgMock.ts',
   },
   collectCoverage: false,
 };

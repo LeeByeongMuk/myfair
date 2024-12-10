@@ -3,22 +3,25 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 
-import LayoutEmotion, { theme } from '@app/layout.emotion';
+import { theme } from '@app/layout.emotion';
 
 import TodoMenu from '@components/todo-list/components/TodoMenu';
+
+import { wrapper } from '@tests/testUtils';
 
 describe('TodoMenu 컴포넌트', () => {
   const mockHandleChangeFilter = jest.fn();
 
   beforeEach(() => {
     render(
-      <LayoutEmotion>
-        <TodoMenu
-          options={['all', 'todo', 'done']}
-          currentFilter="all"
-          handleChangeFilter={mockHandleChangeFilter}
-        />
-      </LayoutEmotion>
+      <TodoMenu
+        options={['all', 'todo', 'done']}
+        currentFilter="all"
+        handleChangeFilter={mockHandleChangeFilter}
+      />,
+      {
+        wrapper,
+      }
     );
     jest.clearAllMocks();
   });
