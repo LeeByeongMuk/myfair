@@ -6,7 +6,7 @@ import {
   HiddenCheckbox,
 } from '@components/common/CheckBox.emotion';
 
-import CheckIcon from '@images/Check.svg';
+import { ReactComponent as CheckIcon } from '@images/Check.svg';
 
 export interface CheckBoxProps {
   id: string;
@@ -14,7 +14,11 @@ export interface CheckBoxProps {
   handleToggle: () => void;
 }
 
-export default function CheckBox({ id, isChecked, handleToggle }: CheckBoxProps) {
+export default function CheckBox({
+  id,
+  isChecked,
+  handleToggle,
+}: CheckBoxProps) {
   return (
     <CheckboxWrapper>
       <HiddenCheckbox
@@ -27,7 +31,7 @@ export default function CheckBox({ id, isChecked, handleToggle }: CheckBoxProps)
         data-testid={`checkbox-${id}`}
       />
       <CheckboxStyled checked={isChecked}>
-        {isChecked && <CheckIcon />}
+        {isChecked && <CheckIcon data-testid="check-icon" />}
       </CheckboxStyled>
     </CheckboxWrapper>
   );

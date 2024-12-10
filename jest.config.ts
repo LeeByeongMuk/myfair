@@ -12,10 +12,13 @@ const createJestConfig = nextJest({
 const customJestConfig: Config = {
   testEnvironment: 'jest-environment-jsdom',
   verbose: true,
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/', // 루트 디렉토리 기준 경로 설정
-  }),
-  collectCoverage: false
+  moduleNameMapper: {
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
+    '\\.svg$': '<rootDir>/__mocks__/svgMock.ts',
+  },
+  collectCoverage: false,
 };
 
 module.exports = createJestConfig(customJestConfig);
